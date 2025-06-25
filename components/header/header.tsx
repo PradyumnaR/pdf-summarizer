@@ -6,7 +6,7 @@ import { bgGradiat } from '@/app/page.const';
 function Header() {
   return (
     <nav
-      className={`relative flex flex-row flex-nowrap items-center gap-5 justify-center p-2 ${bgGradiat}`}
+      className={`relative flex flex-row flex-nowrap items-center gap-5 justify-center p-2 bg-gray-400 shadow-gray-500/50 shadow-lg`}
     >
       <div className="flex-1">
         <Link href="/" className="flex items-center gap-1 lg:gap-2 shrink-0">
@@ -15,7 +15,7 @@ function Header() {
         </Link>
       </div>
       <div className="flex flex-1 items-center justify-center gap-5">
-        <Link href="/#pricing">Pricing</Link>
+        {/* <Link href="/#pricing">Pricing</Link> */}
         <SignedIn>
           <Link href="/dashboard">Your Summaries</Link>
         </SignedIn>
@@ -23,8 +23,8 @@ function Header() {
       <div className="flex flex-1 items-center justify-end">
         <SignedIn>
           <div className="flex gap-2 items-center">
-            <Link href="/upload">Upload a PDF</Link>
-            <div>Pro</div>
+            <Link href="/upload">Upload PDF</Link>
+            {/* <div>Pro</div> */}
             <SignedIn>
               <UserButton />
             </SignedIn>
