@@ -34,6 +34,7 @@ export const generateSummaryFromGemini = async (pdfText: string) => {
     }
 
     return response.text();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.log('Gemini API Error:', err);
     throw err;

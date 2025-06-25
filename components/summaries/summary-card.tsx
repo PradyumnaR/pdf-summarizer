@@ -5,7 +5,6 @@ import { FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const SummaryHeader = ({
-  fileUrl,
   title,
   createdAt,
 }: {
@@ -43,6 +42,7 @@ const StatusBadge = ({ status }: { status: string }) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function SummaryCard({ summary }: { summary: any }) {
   return (
     <div>

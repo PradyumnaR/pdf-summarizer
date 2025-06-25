@@ -23,6 +23,7 @@ export async function generateSummaryFromOpenAI(pdfText: string) {
     });
 
     return completion.choices[0].message.content;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     if (err?.status === 429) {
       throw new Error('RATE_LIMIT_EXCEEDED');

@@ -16,14 +16,7 @@ async function SummaryPage(props: { params: Promise<{ id: string }> }) {
     notFound();
   }
 
-  const {
-    title,
-    summary_text,
-    file_name,
-    word_count,
-    created_at,
-    reading_time,
-  } = summary;
+  const { title, summary_text, file_name, word_count, created_at } = summary;
 
   const readingTime = Math.ceil((word_count || 0) / 200);
 

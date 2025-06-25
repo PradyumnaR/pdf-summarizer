@@ -7,7 +7,7 @@ function UploadHeader() {
         <Sparkles />
         <span className="pl-2">AI-Powered Content Creation</span>
       </div>
-      <h1 className="py-5 text-4xl">Start uploading your PDF's</h1>
+      <h1 className="py-5 text-4xl">Start uploading your PDFs</h1>
       <p className="text-gray-500">
         Upload your PDF and let our AI do the magic!{' '}
         <span className="text-blue-400">✧</span>

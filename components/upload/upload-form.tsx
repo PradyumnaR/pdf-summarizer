@@ -29,7 +29,7 @@ function UploadForm() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const { startUpload, routeConfig } = useUploadThing('pdfUploader', {
+  const { startUpload } = useUploadThing('pdfUploader', {
     onClientUploadComplete: () => {
       toast.success('Successfully uploaded PDF file!!');
     },
@@ -38,7 +38,8 @@ function UploadForm() {
         description: err.message,
       });
     },
-    onUploadBegin: () => {
+    onUploadBegin: (data) => {
+      console.log('Upload has begun for', data);
       toast.info('Upload has begun...');
     },
   });
@@ -67,9 +68,9 @@ function UploadForm() {
         toast.info('Hang tight! Our AI is reading through your document!!');
 
         //upload the file to uploadthing
-        const resp = await startUpload([file]);
+        const uploadResponse = await startUpload([file]);
 
-        if (!resp) {
+        if (!uploadResponse) {
           toast('Something went wrong', {
             description: 'Please use different file',
           });
@@ -77,11 +78,15 @@ function UploadForm() {
         }
 
         //parse the pdf using lang chain
-        const result = await generatePdfSummary(resp);
+        const result = await generatePdfSummary({
+          fileUrl: uploadResponse[0].serverData.fileUrl,
+          fileName: file.name,
+        });
         console.log('summary =>>>', result);
-        const { data = null, message = null } = result || {};
+        const { data = null } = result || {};
 
         if (data) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           let storeResult: any;
           toast.info('Saving PDF...', {
             description: 'Hang tight! We are saving your summary!',
@@ -90,7 +95,7 @@ function UploadForm() {
           if (data.summary) {
             storeResult = await storePdfSummaryAction({
               summary: data.summary,
-              fileUrl: resp[0].serverData.file.url,
+              fileUrl: uploadResponse[0].serverData.fileUrl,
               title: data.title,
               fileName: file.name,
             });

@@ -31,7 +31,7 @@ function DeleteButton({ summaryId }: DeleteButtonProps) {
       }
       setOpen(false);
     });
-  }, []);
+  }, [summaryId]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
