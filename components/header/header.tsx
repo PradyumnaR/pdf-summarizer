@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FileText } from 'lucide-react';
 import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs';
-import { bgGradiat } from '@/app/page.const';
+// import { bgGradiat } from '@/app/page.const';
 
 function Header() {
   return (
