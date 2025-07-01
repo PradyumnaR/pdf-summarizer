@@ -22,7 +22,7 @@ function HeroSection() {
           variant="secondary"
           className="rounded-full border-2 hover:border-black"
         >
-          <Link href="/#pricing" className="flex gap-2 items-center">
+          <Link href="/upload" className="flex gap-2 items-center">
             <span>Try PDF Reader</span>
             <ArrowRight className="animate-pulse" />
           </Link>

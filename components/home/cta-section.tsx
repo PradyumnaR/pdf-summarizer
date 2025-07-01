@@ -15,15 +15,15 @@ function CtaSection() {
             </p>
           </div>
           <div>
-            <Button
+            {/* <Button
               variant="outline"
               className="bg-white border-2 border-gray-500 rounded-2xl"
             >
-              <Link href="/#pricing" className="flex flex-row items-center">
+              <Link href="/upload" className="flex flex-row items-center">
                 <span className="text-black">Get Started </span>
                 <ArrowRight className="w-4 h-4 animate-pulse ml-2 text-black" />
               </Link>
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
